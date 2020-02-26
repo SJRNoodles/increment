@@ -5,12 +5,16 @@
 var x = 0;
 var upg_amount=1;
 var price=5;
-
+MySpecificPurposeCookies.get(savedclicks);
 
 function Click() {
   x = x+upg_amount;
   document.getElementById("click").innerHTML = "Clicks: "+ x;  
 }
+  function Save(){
+  MySpecificPurposeCookies.set(savedclicks,x);
+  }
+  
 function Upgrade1(){
  if(x>= 20){
   document.getElementById("upg1").disabled = true;
@@ -42,9 +46,27 @@ function Upgrade(){
     alert("You don't have enough clicks to get this upgrade.");
  }
 }
+  
+  MySpecificPurposeCookies = function() {
+  return {
+    get: function(name) {
+      return Cookies.get(name);
+    },
+    set: function(name, value, attributes) {
+      Cookies.set(name, value, attributes);
+    },
+    remove: function(name, attributes) {
+      Cookies.remove(name, attributes);
+    }
+  };
+};
+
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
 <head>
+  
 <center><h1>Simple Increment</h1></center>
   <link href="/increment/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -60,4 +82,10 @@ function Upgrade(){
 <pr>
 <p id="pr_up">Price: 5</p>
 </div>
+  <hr>
+  </h4>Save</h4>
+  <pr>
+    <button onclick="Save();" id="sav">Save</button>
+  
   </div>
+  
