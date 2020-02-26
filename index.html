@@ -1,28 +1,10 @@
+<title>Simple Increment</title>
+
+
 <script>
 var x = 0;
 var upg_amount=1;
 var price=5;
-
-function setCookie(savedclick, clickvalue) {
-  
-  document.cookie = savedclick + "=" + clickvalue + ";" + ";path=/";
-}
-
-function getCookie(savedclick) {
-  var save = savedclick + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(save) == 0) {
-      return c.substring(save.length, c.length);
-    }
-  }
-  return "";
-}
 
 
 function Click() {
