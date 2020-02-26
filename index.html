@@ -2,6 +2,29 @@
 var x = 0;
 var upg_amount=1;
 var price=5;
+
+function setCookie(savedclick, clickvalue) {
+  
+  document.cookie = savedclick + "=" + clickvalue + ";" + ";path=/";
+}
+
+function getCookie(savedclick) {
+  var save = savedclick + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(save) == 0) {
+      return c.substring(save.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 function Click() {
   x = x+upg_amount;
   document.getElementById("click").innerHTML = "Clicks: "+ x;  
@@ -51,6 +74,14 @@ function Upgrade(){
 <h3>Upgrades</h3>
 <pr>
 <div id="upgrade">
+<button onclick="Upgrade();" id="upg">+1 Clicks</button>
+<pr>
+<p id="pr_up">Price: 5</p>
+</div>
+  </div>
+  <hr>
+  <h4>Save test</h4>
+  <button onclick="setCookie(saved,x);" id="sav">save</button>
 <button onclick="Upgrade();" id="upg">+1 Clicks</button>
 <pr>
 <p id="pr_up">Price: 5</p>
