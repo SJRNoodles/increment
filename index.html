@@ -1,0 +1,52 @@
+<script>
+var x = 0;
+var upg_amount=1;
+var price=5;
+function Click() {
+  x = x+upg_amount;
+  document.getElementById("click").innerHTML = "Clicks: "+ x;  
+}
+function Upgrade1(){
+ if(x>= 20){
+  document.getElementById("upg1").disabled = true;
+   upg_amount=upg_amount+1;
+   x=x-20;
+   document.getElementById("click").innerHTML = "Clicks: "+ x;  
+ }else{
+    alert("You don't have enough clicks to get this upgrade.");
+ }
+}
+function Upgrade2(){
+ if(x>= 50){
+  document.getElementById("upg2").disabled = true;
+   upg_amount=upg_amount+2;
+   x=x-50;
+   document.getElementById("click").innerHTML = "Clicks: "+ x;  
+ }else{
+    alert("You don't have enough clicks to get this upgrade.");
+ }
+}
+function Upgrade(){
+ if(x>= price){
+   upg_amount=upg_amount+1;
+   x=x-price;
+   document.getElementById("click").innerHTML = "Clicks: "+ x;  
+   price=price+5;
+   document.getElementById("pr_up").innerHTML = "Price: "+ price;  
+ }else{
+    alert("You don't have enough clicks to get this upgrade.");
+ }
+}
+</script>
+<h1>Simple Increment</h1>
+<button onclick="Click();" id="myBtn">Click</button>
+<pr>
+<p id="click">Clicks:</p>
+<hr>
+<h3>Upgrades</h3>
+<pr>
+<div id=upgrade>
+<button onclick="Upgrade();" id="upg">+1 Clicks</button>
+<pr>
+<p id="pr_up">Price: 5</p>
+</div>
