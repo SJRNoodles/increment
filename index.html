@@ -1,11 +1,11 @@
 <title>Simple Increment</title>
-
+<script src="/path/to/js.cookie.js"></script>
 
 <script>
 var x = 0;
 var upg_amount=1;
 var price=5;
-
+Cookies.get('x');
 
 function Click() {
   x = x+upg_amount;
@@ -45,6 +45,9 @@ function Upgrade(){
  }
 }
   
+function Save(){
+Cookies.set('savedclicks', x);
+}
 
 
 </script>
@@ -69,7 +72,7 @@ function Upgrade(){
 <p id="pr_up">Price: 5</p>
 </div>
   <hr>
-
+<button onclick="Save();" id="sav">Save</button>
 
   
   </div>
