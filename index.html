@@ -1,10 +1,56 @@
-<title>Simple Increment</title>
+<head>
 <script src="/path/to/js.cookie.js"></script>
+<link rel="shortcut icon" href="favicon.ico">
+<title>Simple Increment</title>
+<h1><center>Simple Increment</center></h1>
+<link href="https://sjrnoodles.github.io/increment/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<div id=contents>
+<p id="click">Clicks:0</p>
+<p id="cpc">Clicks per Click: 1</p>
+</pr>
+<button type="button" onclick="Click();">Click</button>
+<hr>
+<div id="upgrade">
+<button type="button" onclick="Upgrade();">Upgrade</button>
+<p id="priceupg">Price: 5</p>
+</div>
+<hr>
+<button onclick="Save();" id="sav">Save</button>
+  <button onclick="Load();" id="load">Load</button>
+</div>
+
 <script>
-var x = 0;
-var upg_amount=1;
-var price=5;
-  
+
+var clicks = 0;
+var price = 5;
+var upg=1;
+function Click(){
+clicks=clicks+upg;
+document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
+
+}
+
+function Upgrade(){
+ if(clicks>=price){
+  clicks=clicks-price;
+ price=price+5;
+
+ upg=upg+1;
+ document.getElementById("priceupg").innerHTML = "Price: "+ price;  
+ document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
+ document.getElementById("cpc").innerHTML = "Clicks per Clck: "+ upg;  
+ }else{
+ alert("Not enough clicks!");
+ }
+}
+
+function Save(){
+Cookies.set('savedclicks', x);
+Cookies.set('savedupgrade', upg_amount);
+  Cookies.set('savedupgprice', price);
+}
 function Load(){
 x = getCookie("savedclicks");
 upg_amount = getCookie("savedupgrade");
@@ -12,63 +58,7 @@ price = getCookie("savedupgprice");
   document.getElementById("click").innerHTML = "Clicks: "+ x;  
 document.getElementById("pr_up").innerHTML = "Price: "+ price; 
 }
-
- 
-
-function Click() {
-  x = x+upg_amount;
-  document.getElementById("click").innerHTML = "Clicks: "+ x;  
-}
- 
-}
-function Upgrade(){
- if(x>= price){
-   upg_amount=upg_amount+1;
-   x=x-price;
-   document.getElementById("click").innerHTML = "Clicks: "+ x;  
-   price=price+5;
-   document.getElementById("pr_up").innerHTML = "Price: "+ price;  
- }else{
-    alert("You don't have enough clicks to get this upgrade.");
- }
-}
-  
-function Save(){
-Cookies.set('savedclicks', x);
-Cookies.set('savedupgrade', upg_amount);
-  Cookies.set('savedupgprice', price);
-}
-
-
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
-<link rel="shortcut icon" href="favicon.ico">
-<head>
-  
-<center><h1>Simple Increment</h1></center>
-  <link href="/increment/style.css" rel="stylesheet" type="text/css">
-</head>
-<div id="contents">
-  <h2>This site uses cookies to save your clicks and other stuff!</h2>
-<button onclick="Click();" id="myBtn">Click</button>
-<pr>
-<p id="click">Clicks:</p>
-<hr>
-<h3>Upgrades</h3>
-<pr>
-<div id="upgrade">
-<button onclick="Upgrade();" id="upg">+1 Clicks</button>
-<pr>
-<p id="pr_up">Price: 5</p>
-</div>
-  <hr>
-<button onclick="Save();" id="sav">Save</button>
-  <button onclick="Load();" id="sav">Load</button>
- 
-
-  
-  </div>
 
 
   
