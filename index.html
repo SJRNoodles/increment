@@ -7,6 +7,8 @@
 </head>
 
 <div id=contents>
+  <h1>NOTICE:THIS SITE USES COOKIES TO SAVE DATA</h1>
+  <hr>
 <p id="click">Clicks:0</p>
 <p id="cpc">Clicks per Click: 1</p>
 </pr>
@@ -40,23 +42,24 @@ function Upgrade(){
  upg=upg+1;
  document.getElementById("priceupg").innerHTML = "Price: "+ price;  
  document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
- document.getElementById("cpc").innerHTML = "Clicks per Clck: "+ upg;  
+ document.getElementById("cpc").innerHTML = "Clicks per Click: "+ upg;  
  }else{
  alert("Not enough clicks!");
  }
 }
 
 function Save(){
-Cookies.set('savedclicks', x);
-Cookies.set('savedupgrade', upg_amount);
-  Cookies.set('savedupgprice', price);
+Cookies.set('savedclicks', clicks);
+Cookies.set('savedupgrade', upg);
+Cookies.set('savedupgprice', price);
 }
 function Load(){
 x = getCookie("savedclicks");
 upg_amount = getCookie("savedupgrade");
 price = getCookie("savedupgprice");
-  document.getElementById("click").innerHTML = "Clicks: "+ x;  
-document.getElementById("pr_up").innerHTML = "Price: "+ price; 
+  document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
+document.getElementById("priceupg").innerHTML = "Price: "+ price; 
+ document.getElementById("cpc").innerHTML = "Clicks per Click: "+ upg;  
 }
 </script>
 
