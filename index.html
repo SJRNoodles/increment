@@ -5,15 +5,13 @@
 var x = 0;
 var upg_amount=1;
 var price=5;
-MySpecificPurposeCookies.get(savedclicks);
+
 
 function Click() {
   x = x+upg_amount;
   document.getElementById("click").innerHTML = "Clicks: "+ x;  
 }
-  function Save(){
-  MySpecificPurposeCookies.set(savedclicks,x);
-  }
+  
   
 function Upgrade1(){
  if(x>= 20){
@@ -47,19 +45,7 @@ function Upgrade(){
  }
 }
   
-  MySpecificPurposeCookies = function() {
-  return {
-    get: function(name) {
-      return Cookies.get(name);
-    },
-    set: function(name, value, attributes) {
-      Cookies.set(name, value, attributes);
-    },
-    remove: function(name, attributes) {
-      Cookies.remove(name, attributes);
-    }
-  };
-};
+
 
 </script>
 
@@ -83,9 +69,8 @@ function Upgrade(){
 <p id="pr_up">Price: 5</p>
 </div>
   <hr>
-  </h4>Save</h4>
-  <pr>
-    <button onclick="Save();" id="sav">Save</button>
+
+
   
   </div>
   
