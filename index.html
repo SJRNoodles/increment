@@ -4,7 +4,8 @@
 var x = 0;
 var upg_amount=1;
 var price=5;
-
+Cookies.get('savedclicks');
+Cookies.get('savedupgrade');
 
 function Click() {
   x = x+upg_amount;
@@ -77,9 +78,6 @@ Cookies.set('savedclicks', x);
 
   
   </div>
-  <script type="text/javascript">
-     Cookies.get('savedclicks');
-    Cookies.get('savedupgrade');
-  </script>
+
 
   
