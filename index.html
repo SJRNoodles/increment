@@ -20,16 +20,55 @@
 </div>
 <hr>
 <button onclick="Save();" id="sav">Save</button>
-  <button onclick="Load();" id="load">Load</button>
+<button onclick="Load();" id="lod">Load</button>
+ 
 </div>
-<script src="https://sjrnoodles.github.io/increment/js.cookie.js"></script>
+
 <script>
 
 var clicks = 0;
+var upg = 1;
 var price = 5;
-var upg=1;
+
+function readCookie(name) { 
+    var nameEQ = name + "="; 
+    var ca = document.cookie.split(';'); 
+    for(var i=0;i < ca.length;i++) { 
+        var c = ca[i]; 
+        while (c.charAt(0)==' ') c = c.substring(1,c.length); 
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length); 
+    } 
+    return null; }
+
+function Load(){
+
+
+clicks = readCookie("savedclicks");
+document.getElementById("click").innerHTML = "Clicks: "+ clicks; 
+clicks=clicks-0;
+
+upg = readCookie("savedupg");
+ document.getElementById("cpc").innerHTML = "Clicks per Click: "+ upg;  
+
+ 
+
+price = readCookie("savedprc");
+ document.getElementById("priceupg").innerHTML = "Price: "+ price;  
+ 
+ price=price-0;
+
+ upg=upg-0;
+}
+
+
+
+
 function Click(){
-clicks=clicks+upg;
+
+clicks = clicks+upg;
+
+
+
 document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
 
 }
@@ -49,18 +88,13 @@ function Upgrade(){
 }
 
 function Save(){
-Cookies.set('savedclicks', clicks);
-Cookies.set('savedupgrade', upg);
-Cookies.set('savedupgprice', price);
+document.cookie = "savedclicks="+ clicks;
+document.cookie = "savedupg="+ upg;
+document.cookie = "savedprc="+ price;
 }
-function Load(){
-clicks = getCookie("savedclicks");
-upg = getCookie("savedupgrade");
-price = getCookie("savedupgprice");
-  document.getElementById("click").innerHTML = "Clicks: "+ clicks;  
-document.getElementById("priceupg").innerHTML = "Price: "+ price; 
- document.getElementById("cpc").innerHTML = "Clicks per Click: "+ upg;  
-}
+
+
+
 </script>
 
 
