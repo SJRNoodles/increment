@@ -5,12 +5,15 @@ var x = 0;
 var upg_amount=1;
 var price=5;
   
+function Load(){
 x = getCookie("savedclicks");
 upg_amount = getCookie("savedupgrade");
 price = getCookie("savedupgprice");
+  document.getElementById("click").innerHTML = "Clicks: "+ x;  
+document.getElementById("pr_up").innerHTML = "Price: "+ price; 
+}
 
-document.getElementById("click").innerHTML = "Clicks: "+ x;  
-document.getElementById("pr_up").innerHTML = "Price: "+ price;  
+ 
 
 function Click() {
   x = x+upg_amount;
@@ -65,5 +68,5 @@ Cookies.set('savedupgrade', upg_amount);
   
   </div>
 
-
+<script>Load();</script>
   
