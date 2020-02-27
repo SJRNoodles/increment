@@ -47,6 +47,7 @@ function Upgrade(){
   
 function Save(){
 Cookies.set('savedclicks', x);
+  Cookies.set('savedupgrade', upg_amount);
 }
 
 
@@ -78,7 +79,8 @@ Cookies.set('savedclicks', x);
   
   </div>
   <script type="text/javascript">
-     Cookies.get('x');
+     Cookies.get('savedclicks');
+    Cookies.get('savedupgrade');
   </script>
 
   
